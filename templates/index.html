@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facturas</title>
+    <script>
+        function checkOnSubmit(){
+            let toret=true;
+
+            let cif = document.getElementById("cif").nodeValue;
+            let nom= document.getElementById("nombre").nodeValue;
+            let dir= document.getElementById("direccion").nodeValue;
+            let pob = document.getElementById("poblacion").nodeValue;
+            let pro = document.getElementById("provincia").nodeValue;
+            let cod = document.getElementById("codigopostal").nodeValue;
+            let pas = document.getElementById("pais").nodeValue;
+            let per = document.getElementById("personadecontacto").nodeValue;
+            let ema = document.getElementById("email").nodeValue;
+            let tel = document.getElementById("telefono").nodeValue;
+            //Linea de detalle
+            let con = document.getElementById("concepto").nodeValue;
+            let pre = document.getElementById("precio").nodeValue;
+            let uni = document.getElementById("unidades").nodeValue;
+
+            let iva = document.getElementById("iva").nodeValue;
+
+            if (cif.length==0 || nom.length==0 || dir.length==0 || pob.length==0 || pro.length==0 || cod.length==0 ||
+                pas.length==0 || per.length==0 || ema.length==0 || tel.length==0 || con.length==0 || pre.length==0 ||
+                uni.length==0 || iva.length==0){
+                toret=false;
+                alert("Todos los campos deben estar cubiertos");
+            }
+
+            return toret;
+        }
+    </script>
+</head>
+<body>
+    <h1>Facturas</h1>
+
+    <form id="facturasForm"
+        method="post"
+        action="/factura"
+        onsubmit="return checkOnSubmit()"><!-- FALTAN ACTION Y METHOD-->
+
+        <label for="cif">cif</label>
+        <input type="text" id="cif" name="cif"/>
+        
+        <label for="nombre">nombre</label>
+        <input type="text" id="nombre" name="nombre"/>
+
+        <label for="direccion">direccion</label>
+        <input type="text" id="direccion" name="direccion"/>
+
+        <label for="poblacion">poblacion</label>
+        <input type="text" id="poblacion" name="poblacion"/>
+
+        <label for="provincia">provincia</label>
+        <input type="text" id="provincia" name="provincia"/>
+
+        <label for="codigopostal">codigo postal</label>
+        <input type="text" id="codigopostal" name="codigopostal"/>
+
+        <label for="pais">pais</label>
+        <input type="text" id="pais" name="pais"/>
+
+        <label for="personadecontacto">persona de contacto</label>
+        <input type="text" id="personadecontacto" name="personadecontacto"/>
+
+        <label for="email">email</label>
+        <input type="text" id="email" name="email"/>
+        
+        <label for="telefono">telefono</label>
+        <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}"/>
+
+        <!-- Linea de detalle-->
+        <label for="concepto">concepto</label>
+        <input type="text" id="concepto" name="concepto"/>
+
+        <label for="precio">precio</label>
+        <input type="number" id="precio" name="precio"/>
+        
+        <label for="unidades">unidades</label>
+        <input type="number" id="unidades" name="unidades"/>
+        
+        <label for="iva">iva</label>
+        <input type="number" id="iva" name="iva"/>
+        
+        <input type="submit" value="Enviar"/>
+    </form>
+</body>
+</html>
