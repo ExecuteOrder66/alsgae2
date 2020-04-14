@@ -1,5 +1,5 @@
 class LineaDeDetalle:
-    def init(self, concepto, precio, unidades, importeBruto, iva, importeTotal):
+    def __init__(self, concepto, precio, unidades, importeBruto, iva, importeTotal):
         self._concepto = concepto
         self._precio = precio
         self._unidades = unidades
@@ -55,13 +55,13 @@ class LineaDeDetalle:
     def importeTotal(self, importeTotal):
         self._importeTotal = importeTotal
 
-    def str(self):
-        toret = "Concepto: " + self._concepto + "\n" + \
-                "Precio por unidad: " + self._precio + "\n" +\
-                "Unidades: " + self._unidades + "\n"+\
-                "Importe Bruto: " + self._importeBruto + "\n"+\
-                "% IVA: " + self._iva + "\n"+\
-                "Importe Total: " + self._importeTotal + "\n"
+    def __str__(self):
+        toret = "Concepto: " + str(self._concepto) + "\n" + \
+                "Precio por unidad: " + str(self._precio) + "\n" +\
+                "Unidades: " + str(self._unidades) + "\n"+\
+                "Importe Bruto: " + str(self._importeBruto) + "\n"+\
+                "% IVA: " + str(self._iva) + "\n"+\
+                "Importe Total: " + str(self._importeTotal) + "\n"
         return toret
 
 
